@@ -1,0 +1,57 @@
+:root {
+  /* Color System */
+  --bg-primary: #070a13;      /* Deep Midnight Navy */
+  --bg-secondary: #0d1527;    /* Dark Ocean Blue */
+  --accent-ice: #e0f2fe;      /* Ice Blue */
+  --accent-cyan: #38bdf8;     /* Sky Cyan */
+  --accent-cyan-rgb: 56, 189, 248;
+  --accent-ice-rgb: 224, 242, 254;
+
+  /* State Colors */
+  --color-success: #10b981;   /* Emerald */
+  --color-warning: #f59e0b;   /* Amber */
+  --color-error: #f43f5e;     /* Rose */
+
+  /* Text Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* Glassmorphism Configuration */
+  --glass-bg: rgba(13, 21, 39, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 255, 255, 0.16);
+  --glass-blur: blur(20px);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  /* Spacing Scale (Apple-level Spacing) */
+  --spacing-xxs: 0.25rem; /* 4px */
+  --spacing-xs: 0.5rem;   /* 8px */
+  --spacing-sm: 0.75rem;  /* 12px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 1.5rem;   /* 24px */
+  --spacing-xl: 2rem;     /* 32px */
+  --spacing-xxl: 3rem;    /* 48px */
+  --spacing-3xl: 4.5rem;  /* 72px */
+  --spacing-4xl: 6rem;    /* 96px */
+
+  /* Border Radii (Large & Rounded) */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-sans: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Transitions */
+  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 600ms;
+
+  /* Max Widths */
+  --max-width-desktop: 1360px;
+}
