@@ -519,6 +519,7 @@ button {
 .navbar-actions {
   display: flex;
   align-items: center;
+  gap: var(--spacing-sm);
 }
 
 .system-status {
@@ -543,6 +544,73 @@ button {
   animation: pulse-green 2s infinite ease-in-out;
 }
 
+.mobile-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  transition: background var(--duration-fast) var(--transition-smooth);
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.mobile-nav-menu {
+  display: flex;
+  flex-direction: column;
+  background: rgba(7, 10, 19, 0.96);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
+  padding: var(--spacing-md) var(--spacing-lg);
+  gap: var(--spacing-xs);
+  width: 100%;
+}
+
+.mobile-nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  transition: color var(--duration-fast) var(--transition-smooth);
+}
+
+.mobile-nav-link:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav-link:hover {
+  color: var(--text-primary);
+}
+
+.mobile-nav-link.active {
+  color: var(--accent-cyan);
+}
+
+.mobile-docs-link {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 8px var(--spacing-md);
+  margin-top: var(--spacing-xs);
+  color: var(--text-primary);
+}
+
+.mobile-docs-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
 @keyframes float-slow {
   0% { transform: translateY(0px) rotate(0deg); }
   100% { transform: translateY(-2px) rotate(5deg); }
@@ -556,12 +624,18 @@ button {
 
 @media (max-width: 768px) {
   .nav-menu {
-    display: none; /* Hide standard links on mobile, or implement clean dropdown in Phase 2 */
+    display: none;
+  }
+  .mobile-menu-toggle {
+    display: flex;
   }
   .system-status {
     padding: var(--spacing-xxs) var(--spacing-xs);
   }
   .system-status .status-text {
+    display: none;
+  }
+  .search-shortcut {
     display: none;
   }
 }

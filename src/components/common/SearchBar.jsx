@@ -164,7 +164,7 @@ const SearchBar = ({ onSearch, onLocationClick }) => {
           className="search-input"
           aria-label="Search city, airport or region"
           aria-autocomplete="list"
-          aria-controls="search-suggestions-list"
+          aria-controls={isOpen ? "search-suggestions-list" : undefined}
           aria-expanded={isOpen}
         />
         <div className="search-shortcut">

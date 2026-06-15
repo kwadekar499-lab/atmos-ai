@@ -53,7 +53,7 @@ const Highlights = ({ data }) => {
           </div>
           <div className="widget-footer uv-bar-container">
             <div className="uv-bar-track">
-              <div className="uv-bar-indicator" style={{ left: `${(current.uv / 11) * 100}%` }}></div>
+              <div className="uv-bar-indicator" style={{ left: `${Math.min(100, (current.uv / 11) * 100)}%` }}></div>
             </div>
             <span className="uv-footer-desc">{uvCat.label} protection required.</span>
           </div>
