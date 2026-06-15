@@ -88,7 +88,7 @@ export const useWeather = () => {
   /**
    * Acquires browser geolocation and fetches the local weather.
    */
-  const fetchWeatherByLocation = useCallback(() => {
+  const fetchWeatherByLocation = useCallback(async () => {
     if (!navigator.geolocation) {
       setError('Location Access Failed: Geolocation is not supported by your browser.');
       return;
@@ -97,6 +97,28 @@ export const useWeather = () => {
     setIsLoading(true);
     setError(null);
     setSpellingSuggestions([]);
+
+    let permissionState = 'prompt';
+    try {
+      if (navigator.permissions && navigator.permissions.query) {
+        const permissionStatus = await navigator.permissions.query({ name: 'geolocation' });
+        permissionState = permissionStatus.state;
+      }
+    } catch (e) {
+      console.warn('Permissions API query warning:', e);
+    }
+
+    if (permissionState === 'denied') {
+      setError('Location Access Denied: Please enable location permissions in your browser settings or search manually.');
+      setIsLoading(false);
+      return;
+    }
+
+    const options = {
+      enableHighAccuracy: true,
+      maximumAge: 0,
+      timeout: permissionState === 'prompt' ? 60000 : 10000
+    };
 
     navigator.geolocation.getCurrentPosition(
       async (position) => {
@@ -132,11 +154,7 @@ export const useWeather = () => {
         setError(friendlyMessage);
         setIsLoading(false);
       },
-      {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 0
-      }
+      options
     );
   }, [saveToHistory]);
 

@@ -1712,7 +1712,18 @@ button {
 
 @media (max-width: 768px) {
   .docs-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .docs-main-content,
+  .docs-sidebar {
+    min-width: 0;
+    width: 100%;
+  }
+  .api-param-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
   }
 }
 
