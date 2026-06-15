@@ -33,7 +33,7 @@ const Navbar = () => {
             Radar Maps
           </NavLink>
           <NavLink 
-            to="/coming-soon/assistant" 
+            to="/assistant" 
             className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
           >
             AI Assistant
@@ -93,7 +93,7 @@ const Navbar = () => {
               Radar Maps
             </NavLink>
             <NavLink 
-              to="/coming-soon/assistant" 
+              to="/assistant" 
               className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
               onClick={() => setIsOpen(false)}
             >

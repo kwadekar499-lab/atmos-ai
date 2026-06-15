@@ -20,6 +20,7 @@ import PrivacyView from './components/sections/PrivacyView';
 import TermsView from './components/sections/TermsView';
 import RadarComingSoon from './components/sections/RadarComingSoon';
 import AssistantComingSoon from './components/sections/AssistantComingSoon';
+import AssistantView from './components/sections/AssistantView';
 import NotFoundView from './components/sections/NotFoundView';
 import BackToTop from './components/common/BackToTop';
 
@@ -142,6 +143,7 @@ function App() {
           {/* Coming Soon pages */}
           <Route path="/coming-soon/radar" element={<RadarComingSoon />} />
           <Route path="/coming-soon/assistant" element={<AssistantComingSoon />} />
+          <Route path="/assistant" element={<AssistantView weatherData={weatherData} />} />
 
           {/* Custom 404 Not Found Page */}
           <Route path="*" element={<NotFoundView />} />
