@@ -196,15 +196,26 @@ const AssistantView = ({ weatherData }) => {
 
           {/* Active Chat Inputs */}
           <GlassCard className="technical-card active-chat-inputs-card">
-            <form onSubmit={(e) => { e.preventDefault(); handleSend(); }} className="input-field-placeholder active-chat-inputs">
+            <form
+              autoComplete="off"
+              noValidate
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSend();
+              }}
+              className="input-field-placeholder active-chat-inputs"
+            >
               <MessageSquare size={16} className="placeholder-chat-icon" aria-hidden="true" />
               <input
                 type="text"
+                name="chat-message"
                 className="placeholder-text active-chat-input"
                 placeholder={isSending ? "Processing request..." : "Ask Atmos AI weather advice..."}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 disabled={isSending}
+                spellCheck={false}
+                autoComplete="off"
                 aria-label="Ask Atmos AI weather advice"
               />
               <button 

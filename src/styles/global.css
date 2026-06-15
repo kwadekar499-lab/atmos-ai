@@ -2693,12 +2693,12 @@ button {
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.5) !important;
 }
 
-/* Disabled input field chat placeholder */
-.input-field-placeholder {
+/* Disabled input field chat placeholder (Coming Soon only — not active chat) */
+.input-field-placeholder:not(.active-chat-inputs) {
   cursor: not-allowed;
 }
 
-.input-field-placeholder input.placeholder-text {
+.input-field-placeholder:not(.active-chat-inputs) input.placeholder-text {
   background: transparent;
   border: none;
   outline: none;
@@ -2912,10 +2912,25 @@ button {
   background: rgba(0, 0, 0, 0.2);
 }
 
-.active-chat-input {
+.active-chat-inputs input.active-chat-input {
   background: transparent;
+  border: none;
+  outline: none;
   color: var(--text-primary);
   width: 100%;
+  cursor: text;
+  font-size: 0.85rem;
+}
+
+/* Suppress Chromium/Safari credential & contact autofill icons injected into the field */
+.active-chat-inputs input.active-chat-input::-webkit-credentials-auto-fill-button,
+.active-chat-inputs input.active-chat-input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  margin: 0;
 }
 
 .active-chat-send-btn {
